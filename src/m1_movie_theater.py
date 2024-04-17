@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (3 pts)
+# DONE: 1. (3 pts)
 #
 #   For this module, we are going to create a basic program to handle movie
 #   times at a movie theater. For our purposes, a movie is going to be defined
@@ -28,9 +28,16 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+movie = {"title":"", "duration":"", "start_time":"", "theater_num":"", "num_of_tickets":""}
+movies = []
+
+def show_movies(movies):
+    print("Movies:")
+    for x in movies:
+        print(f"Title: {movie['title']} \nDuration: {movie['duration']} \nStart Time: {movie['start_time']} \nTheater: {movie['start_time']} \nTickets Available: {movie['num_of_tickets']}")
 
 ###############################################################################
-# TODO: 2. (3 pts)
+# DONE: 2. (3 pts)
 #
 #   For this _todo_, write a function called get_ticket() that takes one
 #   parameter:
@@ -51,6 +58,14 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+
+def get_ticket(movie):
+    num_of_tickets = int(movies["num_of_tickets"])
+    if num_of_tickets > 0:
+        num_of_tickets = num_of_tickets - 1
+        print(f"Success1 you now have a ticket for {movie}")
+    if num_of_tickets == 0:
+        print("There are currently no tickets available for that movie.")
 
 ###############################################################################
 # TODO: 3. (9 pts)
@@ -83,3 +98,9 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+running = True
+
+def main():
+    print("Welcome, user!")
+    while running == True:
+        
