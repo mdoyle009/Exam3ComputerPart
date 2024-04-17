@@ -28,12 +28,10 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
-movie = {"title":"", "duration":"", "start_time":"", "theater_num":"", "num_of_tickets":""}
-movies = []
 
 def show_movies(movies):
     print("Movies:")
-    for x in movies:
+    for movie in movies:
         print(f"Title: {movie['title']} \nDuration: {movie['duration']} \nStart Time: {movie['start_time']} \nTheater: {movie['start_time']} \nTickets Available: {movie['num_of_tickets']}")
 
 ###############################################################################
@@ -60,7 +58,7 @@ def show_movies(movies):
 ###############################################################################
 
 def get_ticket(movie):
-    num_of_tickets = int(movies["num_of_tickets"])
+    num_of_tickets = int(movie["num_of_tickets"])
     if num_of_tickets > 0:
         num_of_tickets = num_of_tickets - 1
         print(f"Success1 you now have a ticket for {movie}")
@@ -99,8 +97,31 @@ def get_ticket(movie):
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
 running = True
+moving = True
 
 def main():
     print("Welcome, user!")
+    movies = []
     while running == True:
-        
+        title = input("Please enter a movie title: ")
+        duration = input("Plase enter a duration time: ")
+        start_time = input("Please enter the start time: ")
+        theater_num = input("Please enter the theater number: ")
+        num_of_tickets = input("Please enter the number of tickets available: ")
+        if title == "end" or duration == "end" or start_time == "end" or theater_num == "end" or num_of_tickets == "end":
+            running == False
+            break
+        else:
+            movie = {"title": title, "duration": duration, "start_time": start_time, "theater_num": theater_num, "num_of_tickets": num_of_tickets}
+            movies.append(movie)
+    show_movies(movies)
+    while moving == True:
+        movie_title = input("Which movie would you like to buy a ticket for? ")
+        if movie["title"] == movie_title:
+            get_ticket(movie)
+            show_movies(movies)
+        if movie_title == "end":
+            moving == False
+            break
+#I didn't make use of my time as efficiently, so there are still a lot of kinks in the program. 
+main()
